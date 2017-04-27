@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eux
+cd "$(dirname "$0")/../src"
+
+docker build --tag "${IMAGE:-timonier/license}:${TAG:-latest}" .
