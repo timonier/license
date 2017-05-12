@@ -14,7 +14,7 @@ sudo chmod +x /usr/local/bin/license
 Linux users can use the [installer](https://github.com/timonier/license/blob/master/bin/installer):
 
 ```sh
-curl --location "https://github.com/timonier/license/raw/master/bin/installer" | sudo sh -s install
+curl --location "https://github.com/timonier/license/raw/master/bin/installer" | sudo sh -s -- install
 ```
 
 ## Usage

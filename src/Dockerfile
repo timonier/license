@@ -35,7 +35,7 @@ RUN set -eux \
 
     # Install dumb-entrypoint
 
-    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/bin/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s install \
+    && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/bin/installer" | INSTALL_DIRECTORY="/usr/sbin" sh -s -- install \
 
     # Clean
 
