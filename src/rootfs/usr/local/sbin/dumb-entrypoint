@@ -1,0 +1,20 @@
+#!/bin/sh
+set -e
+
+# Check current user
+
+if [ "$(id -u)" -ne 0 ] ; then
+    echo 1>&2 "Impossible to continue without root privileges."
+    exit 1
+fi
+
+# Link host folders
+
+if [ -d /host ] ; then
+    ln -f -s /host/home /home
+    ln -f -s /host/tmp /tmp
+fi
+
+# Run command
+
+gosu "${USER:-root}" "$@"

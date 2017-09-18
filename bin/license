@@ -1,9 +1,15 @@
 #!/bin/sh
-set -eu
+set -e
 
 # Check environment
 
 export PATH=$(echo "${PATH}:/usr/sbin" | awk -v RS=":" -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
+
+# Extract user fullname from git
+
+if [ -z "${LICENSE_FULL_NAME}" ] ; then
+    export LICENSE_FULL_NAME="$(git config user.name || :)"
+fi
 
 # Run command
 
@@ -17,7 +23,6 @@ docker run \
     --volume /etc/localtime:/etc/localtime:ro \
     --volume /etc/passwd:/etc/passwd:ro \
     --volume /etc/timezone:/etc/timezone:ro \
-    --volume "${HOME}:${HOME}" \
-    --volume "${PWD}:${PWD}" \
-    --workdir "${PWD}" \
+    --volume /:/host \
+    --workdir "/host${PWD}" \
     "${IMAGE:-timonier/license}:${TAG:-latest}" license "$@"
