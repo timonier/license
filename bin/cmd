@@ -25,4 +25,4 @@ docker run \
     --volume /etc/timezone:/etc/timezone:ro \
     --volume /:/host \
     --workdir "/host${PWD}" \
-    "${IMAGE:-timonier/license}:${TAG:-latest}" license "$@"
+    "${IMAGE:-timonier/license}:${TAG:-latest}" "$(basename "$0")" "$@"

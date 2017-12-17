@@ -25,7 +25,7 @@ fi
 
 case "$1" in
     install )
-        curl --location --output /usr/local/bin/license "https://github.com/timonier/license/raw/master/bin/license"
+        curl --location --output /usr/local/bin/license "https://github.com/timonier/license/raw/master/bin/cmd"
         chmod +x /usr/local/bin/license
     ;;
 

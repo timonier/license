@@ -4,13 +4,6 @@ Command-line license generator
 
 ## Installation
 
-Copy `bin/license` into your executable folder (like `/usr/local/bin` or `$HOME/bin`):
-
-```sh
-sudo curl --location --output /usr/local/bin/license "https://github.com/timonier/license/raw/master/bin/license"
-sudo chmod +x /usr/local/bin/license
-```
-
 Linux users can use the [installer](https://github.com/timonier/license/blob/master/bin/installer):
 
 ```sh
