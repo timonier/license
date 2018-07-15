@@ -17,4 +17,4 @@ fi
 
 # Run command
 
-gosu "${USER:-root}" "$@"
+exec gosu "${USER:-root}" "${@:-sh}"
