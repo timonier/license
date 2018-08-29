@@ -1,16 +1,16 @@
 #!/bin/sh
-set -e
+set -e -u
 
 # Check current user
 
-if [ "$(id -u)" -ne 0 ] ; then
-    echo 1>&2 "Impossible to continue without root privileges."
-    exit 1
+if [ "$(id -u)" -ne 0 ]; then
+    echo 1>&2 "Impossible to execute this script without root privileges."
+    exit 255
 fi
 
 # Link host folders
 
-if [ -d /host ] ; then
+if [ -d /host ]; then
     ln -f -s /host/home /home
     ln -f -s /host/tmp /tmp
 fi
