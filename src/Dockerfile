@@ -24,7 +24,7 @@ RUN set -e -u -x \
     && apk add --no-cache --no-progress --virtual BUILD_DEPS curl \
     && apk add --no-cache --no-progress ca-certificates \
 \
-    # Install dumb-entrypoint
+    # Install gosu
 \
     && curl --location "https://github.com/timonier/dumb-entrypoint/raw/master/src/gosu/installer" | sh -s -- install \
 \

@@ -4,8 +4,6 @@ Command-line license generator
 
 ## Installation
 
-Linux users can use the [installer](https://github.com/timonier/license/blob/master/bin/installer):
-
 ```sh
 # Define installation folder
 
