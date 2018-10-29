@@ -35,6 +35,6 @@ RUN set -e -u -x \
 
 COPY --from=license /go/bin/license /usr/local/bin/license
 
-COPY ./rootfs /
+COPY rootfs/. /
 
 ENTRYPOINT [ "dumb-entrypoint" ]
