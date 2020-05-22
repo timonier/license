@@ -13,7 +13,7 @@ fi
 
 if [ "$(uname)" == "Linux" ]; then
     export LICENSE_FULL_NAME="$(git config user.name || :)"
-    exec docker run $(compgen -A variable | grep -E -v "^(PATH)$" | awk "{print \"--env\", \$1}") --init --interactive --net host --rm --tty="$([ -t 0 ] && echo "true" || echo "false")" --volume /etc/group:/etc/group:ro --volume /etc/localtime:/etc/localtime:ro --volume /etc/passwd:/etc/passwd:ro --volume /etc/timezone:/etc/timezone:ro --volume /:/host --workdir /host"${PWD}" "${IMAGE:-timonier/license}":"${TAG:-latest}" "$(basename "$0")" "$@"
+    exec docker run $(compgen -A variable | grep -E -v "^(PATH)$" | awk "{print \"--env\", \$1}") --interactive --net host --rm --tty="$([ -t 0 ] && echo "true" || echo "false")" --user "$(id -u)" --volume /etc/group:/etc/group:ro --volume /etc/localtime:/etc/localtime:ro --volume /etc/passwd:/etc/passwd:ro --volume /etc/timezone:/etc/timezone:ro --volume "${HOME}":"${HOME}" --workdir "${PWD}" "${IMAGE:-timonier/license}":"${TAG:-latest}" "$(basename "$0")" "$@"
 fi
 
 _fail "Current OS is not supported."
